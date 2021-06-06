@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise gyakorlása</title>
+    <link rel="stylesheet" href="css/selectors.css">
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Érmedobás egyszerű promise-szel</h2>
+        <button onclick="simpleFlipCoinFunction()">Dob</button>
+        <span style="margin-left:20px">Eredmény: <span id="simpleHeadOrTail"></span></span>
+        <p style="margin-left:65px">Dobások száma: <span id="spanForNumberOfFlips"></span></p>
+        
+        <h2>Érmedobás async funtion-nel</h2>
+        <button onclick="flipCoinFunctionWithAsync()">Dob</button>
+        <span style="margin-left:20px">Eredmény: <span id="headOrTailWithAsync"></span></span>
+        
+        
+        <h2>Érmedobás sorozat promise callback hell-lel</h2>
+        <p>A '<i>Dobássorozat</i>' megnyomásával a gép maximum ötször dob. Az adott dobás után csak akkor dob újra, ha a
+            dobás fej lett. A cél a <i>'fej-fej-fej-fej-fej'</i> dobássorozat elérése.
+            <i>Nyerési
+                esély:
+                1:32</i></p>
+        <button onclick="flipCoinFunction()">Dobássorozat!</button>
+        <table>
+            <tbody>
+                <tr>
+                    <td>eredmény:</td>
+                    <td><span style="color:red" id="headOrTail"></span></td>
+                    <td id="youWon" style="padding-left:100px;font-size: 50px;color:purple" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td>dobássorozatok száma: </td>
+                    <td><span id="numberOfFlips"></span></td>
+                </tr>
+                <tr>
+                    <td>nyert játékok száma: </td>
+                    <td><span id="wonNumber"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Érmedobás sorozat promise callback hell-lel 2.</h2>
+        <p>Játék: a gép addig dob, ameddig írást nem kap.</p>
+        <button onclick="flipCoinFunctionWithAwait()">Dobássorozat!</button>
+        <table>
+            <tbody>
+                <tr>
+                    <td>eredmény:</td>
+                    <td><span style="color:red" id="headOrTail2"></span></td>
+                </tr>
+                <tr>
+                    <td>dobássorozat hossza: </td>
+                    <td><span id="numberOfFlips2"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        
+
+        <h2>Időjárás API hagyományos promise-szel</h2>
+        <span>Időjárási adatok Budapesten:</span><button style="margin-left:20px" onclick="weatherApiFunction()">Kérem
+            az
+            adatokat!</button>
+        <p>Hőmérséklet: <span id="temperature"> - </span> °C</p>
+        <p>Légnyomás: <span id="pressure"> - </span> hPa</p>
+
+        <h2>Időjárás API async function-nel</h2>
+        <span>Időjárási adatok Budapesten:</span><button style="margin-left:20px"
+            onclick="weatherApiFunctionWithAwait()">Kérem az adatokat!</button>
+        <p>Hőmérséklet: <span id="temperature2"> - </span> °C</p>
+        <p>Légnyomás: <span id="pressure2"> - </span> hPa</p>
+
+        <h2>Random bibliai idézet hagyományos promise-szel </h2>
+        <p><i>Ebben az API-ban az a jó, hogy csak 10 idézetet lehet kérni óránként, ha
+                túllépjük, lehet vele gyakorolni a hibakezelést.</i></p>
+        <button onclick="quotationFromBibleFunction()">Kérem az idézetet!</button>
+        <p>Idézet: <span style="background-color: rgb(229, 226, 226);" id="quotationFromBible"></span></p>
+
+        <h2>Random bibliai idézet async function-nel </h2>
+        <button onclick="quotationFromBibleFunctionWithAwait()">Kérem az idézetet!</button>
+        <p>Idézet: <span style="background-color:rgb(229, 226, 226);" id="quotationFromBible2"></span></p>
+
+        <h2>Adat küldése</h2>
+        <p> a <i>jsonplaceholder.typicode.com</i>-ra</p>
+        <p><small>Important: resource will not be really updated on the server but it will be faked as if.</small></p>
+        <title>Szöveges adat:</title>
+        <input id="inputForSendingData" type="text"><button onclick="sendingData()"
+            style="margin-left:20px">send</button>
+        <p>Feltöltött adat: <span id="postedData" style="color:grey"></span></p>
+
+        <h2>Példa, hogy <u>nem</u> működik az '<i>adatok feldolgozása folyamatban</i>' kiírás</h2>
+        <p>a gép 3 másodpercig 'számol', majd kiírja, hogy 1000000000.</p>
+        <button onclick="myFunction1()">Számol</button>
+        <p>Kiírás: <span id="myScreen1"></span></p>
+
+        <h2>Példa, hogy működik az '<i>adatok feldolgozása folyamatban</i>' kiírás</h2>
+        <p>a gép pár másodpercig számol, majd kiírja, hogy 1000000000.</p>
+        <p>a függvény először setTimeout-ba, majd promise-be csomagolva, async/await futtatásával</p>
+        <button onclick="myFunction4()">Számol</button>
+        <p>Kiírás: <span id="myScreen4"></span></p>
+
+
+
+
+
+
+
+        <p style="text-align: right;"><span style="background-color: lightcoral";>&#169BocsiStyle Design</span></p>
+</body>
+
+</div>
+
+</html>
